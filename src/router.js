@@ -8,8 +8,8 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path:"/",
-      redirect:"/Home"
+      path: "/",
+      redirect: "/Home"
     },
     {
       path: "/Login",
@@ -20,10 +20,10 @@ export default new Router({
       path: "/Home",
       name: "home",
       component: () => import('./views/Home'),
-      children:[
+      children: [
         {
-          path:"/Home",
-          redirect:"/C_course"
+          path: "/Home",
+          redirect: "/C_course"
         },
         {
           path: "/C_home",
@@ -33,12 +33,33 @@ export default new Router({
         {
           path: "/C_Carousel",
           name: "c_Carousel",
-          component: () => import('./components/C_Carousel')
+          component: () => import('./components/article/C_Carousel')
         },
         {
           path: "/C_course",
           name: "c_course",
-          component: () => import('./components/C_course')
+          component: () => import('./components/article/C_course')
+        }
+        ,
+        {
+          path: "/C_cducation",
+          name: "c_cducation",
+          component: () => import('./components/article/C_cducation')
+        },
+        {
+          path: "/C_activities",
+          name: "c_activities",
+          component: () => import('./components/article/C_activities')
+        },
+        {
+          path: "/C_teachers",
+          name: "c_teachers",
+          component: () => import('./components/article/C_teachers')
+        },
+        {
+          path: "/C_order",
+          name: "c_order",
+          component: () => import('./components/C_order')
         }
       ]
     }

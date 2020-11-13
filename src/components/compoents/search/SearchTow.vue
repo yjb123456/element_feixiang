@@ -1,22 +1,39 @@
 <template>
   <div id="box">
     <div>
-      <span>课程状态:</span>
-      <el-input v-model="input" placeholder="请输入内容" class="textarea"></el-input>
+      <div>
+        <span>{{span}}:</span>
+        <el-select v-model="value" placeholder="请选择">
+          <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          ></el-option>
+        </el-select>
+      </div>
+      <div>
+        <span>上传时间：</span>
+        <el-date-picker
+          v-model="value1"
+          type="daterange"
+          range-separator="至"
+          start-placeholder="开始日期"
+          end-placeholder="结束日期"
+        ></el-date-picker>
+      </div>
     </div>
     <div>
-      <span>上传时间:</span>
-      <el-date-picker
-        v-model="value1"
-        type="daterange"
-        range-separator="至"
-        start-placeholder="开始日期"
-        end-placeholder="结束日期"
-      ></el-date-picker>
-    </div>
-    <div>
-       <el-button type="primary" class="but-cor"><i class="el-icon-upload2"></i>筛选</el-button>
-        <el-link :underline="false">清空筛选条件</el-link>
+      <div>
+        <span>输入搜索：</span>
+        <el-input v-model="input" placeholder="请输入内容" class="input-wid"></el-input>
+      </div>
+      <div>
+        <el-button type="primary" class="but-cor">
+          <i class="el-icon-upload2"></i>筛选
+        </el-button>
+        <el-link :underline="false" style="color:#9137F3">清空筛选条件</el-link>
+      </div>
     </div>
   </div>
 </template>
@@ -26,6 +43,10 @@ export default {
     input: {
       type: String,
       default: "请输入内容"
+    },
+    span:{
+      type: String,
+       default: "列表"
     }
   },
   data() {
@@ -60,43 +81,53 @@ export default {
         ]
       },
       value1: "",
-      value2: ""
+      value2: "",
+      options: [
+        {
+          value: "选项1",
+          label: "黄金糕"
+        },
+        {
+          value: "选项2",
+          label: "双皮奶"
+        },
+        {
+          value: "选项3",
+          label: "蚵仔煎"
+        },
+        {
+          value: "选项4",
+          label: "龙须面"
+        },
+        {
+          value: "选项5",
+          label: "北京烤鸭"
+        }
+      ],
+      value: ""
     };
   }
 };
 </script>
 <style scoped>
 #box {
-  height: 60px;
+  margin: 10px 0;
+}
+#box > div > div {
+  margin-right: 30px;
   display: flex;
-  margin: 10px 0; 
+  align-items: center;
+  
 }
 #box > div {
-  line-height: 60px;
-  flex: 1;
-  margin-left: 30px;
-}
-#box>div:nth-of-type(3){
-  text-align: center;
-}
-#box > div span {
-  display: inline-block;
-  margin-right: 20px;
-  font-family: "思源黑体";
-  font-weight: 400;
-  font-style: normal;
+  display: flex;
+  margin: 20px 0;
   font-size: 14px;
-  color: #333333;
 }
-.textarea >>> .el-input__inner {
-  width: 185px;
-  height: 37px;
-}
-.el-input {
-  display: inline;
-}
-.el-date-editor{
-  width: 240px;
+
+#box > div span{
+  width: 85px;
+  text-align: left;
 }
 .but-cor{
   background-color: #9137F3;
@@ -104,8 +135,7 @@ export default {
 .el-link.el-link--default{
   margin-left: 20px;
 }
-.but-cor{
-    width: 98px;
-    height: 36px;
-  }
+.input-wid{
+  width: 217px;
+}
 </style>

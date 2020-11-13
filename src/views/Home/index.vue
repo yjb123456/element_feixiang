@@ -9,25 +9,30 @@
           <span>非翔教育</span>
         </div>
         <el-aside width="226px" style="background-color: #fff">
-          <el-menu :default-openeds="['1', '3']" class="span-r">
-              <el-menu-item index="1" @click="open_c_home">
-                <i class="el-icon-s-home cor"></i>
-                <span >首页</span>
-              </el-menu-item>
+          <el-menu
+            :default-openeds="default_openeds_array"
+            @select="handleSelect"
+            @open="handleOpen"
+            class="span-r"
+          >
+            <el-menu-item index="1" @click="open_c_home">
+              <i class="el-icon-s-home cor"></i>
+              <span>首页</span>
+            </el-menu-item>
             <el-submenu index="2">
               <template slot="title">
                 <i class="el-icon-s-order cor"></i>
                 <span>文章管理</span>
               </template>
               <el-menu-item-group>
-                 <el-menu-item @click="open_c_Carousel">轮播图管理</el-menu-item>
-                 <el-menu-item @click="open_c_course">课程管理</el-menu-item>
-                 <el-menu-item>教育头条</el-menu-item>
-                 <el-menu-item>活动列表</el-menu-item>
-                 <el-menu-item>明星教师</el-menu-item>
+                <el-menu-item @click="open_c_Carousel">轮播图管理</el-menu-item>
+                <el-menu-item @click="open_c_course">课程管理</el-menu-item>
+                <el-menu-item @click="open_c_cducation">教育头条</el-menu-item>
+                <el-menu-item @click="open_c_activities">活动列表</el-menu-item>
+                <el-menu-item @click="open_c_teachers">明星教师</el-menu-item>
               </el-menu-item-group>
             </el-submenu>
-            <el-menu-item index="1">
+            <el-menu-item index="1" @click="open_c_order">
               <i class="el-icon-document cor"></i>
               <span>订单管理</span>
             </el-menu-item>
@@ -146,7 +151,7 @@
   border: 0;
 }
 .el-main {
-   background-color: #F6F6F6
+  background-color: #FCFCFC;
 }
 .el-menu {
   border-right: 0;
@@ -164,11 +169,10 @@
   margin-left: 10px;
 }
 .el-submenu .el-menu-item {
-    text-align: center;
+  text-align: center;
 }
 .main-body {
   margin: 0px;
-  background-color: rgba(242, 242, 242, 0.298039215686275);
   background-image: none;
   position: relative;
   left: -0px;
@@ -182,13 +186,7 @@
 <script>
 export default {
   data() {
-    // const item = {
-    //   date: "2016-05-02",
-    //   name: "王小虎",
-    //   address: "上海市普陀区金沙江路 1518 弄"
-    // };
     return {
-      // tableData: Array(20).fill(item)
       title_nav: [
         { title: "首页" },
         {
@@ -214,15 +212,35 @@ export default {
       ]
     };
   },
-  methods:{
-    open_c_home(){
-       this.$router.push({ name: "c_home"})
+  methods: {
+    open_c_home() {
+      this.$router.push({ name: "c_home" });
     },
-    open_c_Carousel(){
-       this.$router.push({ name: "c_Carousel"})
+    open_c_Carousel() {
+      this.$router.push({ name: "c_Carousel" });
     },
-    open_c_course(){
-       this.$router.push({ name: "c_course"})
+    open_c_course() {
+      this.$router.push({ name: "c_course" });
+    },
+    open_c_cducation() {
+      this.$router.push({ name: "c_cducation" });
+    },
+    open_c_activities() {
+      this.$router.push({ name: "c_activities" });
+    },
+    open_c_teachers() {
+      this.$router.push({ name: "c_teachers" });
+    },open_c_order() {
+      this.$router.push({ name: "c_order" });
+    },
+    handleSelect(key, keyPath) {
+      console.log(key, keyPath);
+      if (key == "1-1-1") {
+        this.currentView = "componnts";
+      }
+    },
+    handleOpen(key) {
+      this.default_openeds_array.push(key);
     }
   }
 };

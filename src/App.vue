@@ -47,6 +47,57 @@ li {
 a:hover{
   cursor: pointer;
 }
+.el-icon-circle-plus {
+  margin-right: 5px;
+  width: 17px;
+  font-size: 16px;
+  height: 16px;
+}
+.el-icon-delete-solid {
+  margin-right: 5px;
+  width: 17px;
+  font-size: 16px;
+  height: 16px;
+}
+.fenye > div:nth-of-type(2) {
+  float: right;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+.fenye > div:nth-of-type(1) {
+  float: left;
+  margin-left: 20px;
+  font-size: 14px;
+  color: #B5B5B5;
+}
+.fenye::after {
+  display: block;
+  clear: both;
+  content: "";
+}
+.table-box {
+  margin: 30px 0;
+  font-size: 12px;
+}
+.table-box img {
+  width: 97px;
+  height: 54px;
+}
+.tanchu {
+  font-size: 12px;
+  margin: 0 10px;
+  color: #9137F3;
+}
+.tanchu2 {
+  color: #9137F3;
+  margin-left:10px ;
+}
+.box-boder-pub .title-r {
+  float: right;
+  margin-right: 25px;
+  margin-top: 10px;
+}
+
 </style>
 
 

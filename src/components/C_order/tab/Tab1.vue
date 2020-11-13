@@ -1,0 +1,102 @@
+<template>
+  <div>
+    <div class="table-box">
+      <el-table
+        ref="multipleTable"
+        :data="tableData"
+        tooltip-effect="dark"
+        style="width: 100%"
+        :cell-style="{fontSize:'12px'}"
+        header-cell-style="background-color: #9137f3;color:#fff; text-align: center;"
+        @selection-change="handleSelectionChange"
+      >
+        <el-table-column type="selection" width="55"></el-table-column>
+        <el-table-column prop="dingdan" label="订单编号" align="center" width="130"></el-table-column>
+        <el-table-column prop="name" label="用户微信昵称" align="center"></el-table-column>
+        <el-table-column prop="phone" label="用户手机号码" align="center" width="100"></el-table-column>
+        <el-table-column prop="kcmc" label="课程名称" align="center" width="135"></el-table-column>
+        <el-table-column prop="kcid" label="课程编号" align="center"></el-table-column>
+        <el-table-column prop="moeny" label="订单金额（元）" align="center"></el-table-column>
+        <el-table-column prop="ddzt" label="订单状态" align="center"></el-table-column>
+        <el-table-column prop="date" label="提交时间" align="center" width="150"></el-table-column>
+        <el-table-column label="操作" align="center" width="150">
+          <a class="tanchu" v-for="(item,index) in tableData" :key="index">{{item.caozuo}}</a>
+        </el-table-column>
+      </el-table>
+    </div>
+    <div class="fenye">
+      <div>
+        <a @click="toggleSelection()">取消选择</a>
+      </div>
+      <div>
+        <el-pagination background layout="prev, pager, next" :total="1000"></el-pagination>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+export default {
+  data() {
+    return {
+      tableData: [
+        {
+          dingdan:"2019030102369669",
+          name:"Cassy",
+          phone:"18541263699",
+          kcmc:"幼儿英语入门课程",
+          kcid:"201920236",
+          moeny:"2399.00",
+          ddzt:"待付款",
+          date:"2019-01-25 10:55",
+          caozuo:["查看订单","取消订单"]
+        },
+        {
+          dingdan:"2019030102369669",
+          name:"Cassy",
+          phone:"18541263699",
+          kcmc:"幼儿英语入门课程",
+          kcid:"201920236",
+          moeny:"2399.00",
+          ddzt:"待付款",
+          date:"2019-01-25 10:55",
+          caozuo:["查看订单","取消订单","结束订单"]
+        }
+      ],
+      multipleSelection: [],
+      isclick: 0
+    };
+  },
+
+  methods: {
+    toggleSelection(rows) {
+      if (rows) {
+        rows.forEach(row => {
+          this.$refs.multipleTable.toggleRowSelection(row);
+        });
+      } else {
+        this.$refs.multipleTable.clearSelection();
+      }
+    },
+    handleSelectionChange(val) {
+      this.multipleSelection = val;
+    },
+    open2() {
+      if (this.isclick == 0) {
+        this.isclick = 1;
+        this.$message({
+          message: "加入回收站成功！",
+          type: "success",
+          offset: "100",
+          customClass: "myClass"
+        });
+        window.setTimeout(() => {
+          this.isclick = 0;
+        }, 3000);
+      }
+    }
+  }
+};
+</script>
+<style scoped>
+
+</style>
