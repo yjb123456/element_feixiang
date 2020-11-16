@@ -22,12 +22,11 @@
         </el-button>
       </div>
       <el-tabs v-model="activeName" @tab-click="handleClick">
-        <el-tab-pane label="用户管理" name="first">
-          <Tab1></Tab1>
-        </el-tab-pane>
-        <el-tab-pane label="配置管理" name="second">配置管理</el-tab-pane>
-        <el-tab-pane label="角色管理" name="third">角色管理</el-tab-pane>
-        <el-tab-pane label="定时任务补偿" name="fourth">定时任务补偿</el-tab-pane>
+        <el-tab-pane label="全部订单" name="first"><Tab1></Tab1></el-tab-pane>
+        <el-tab-pane label="待付款" name="second"><Tab2></Tab2></el-tab-pane>
+        <el-tab-pane label="学习中" name="third"><Tab3></Tab3></el-tab-pane>
+        <el-tab-pane label="已完成" name="fourth"><Tab4></Tab4></el-tab-pane>
+        <el-tab-pane label="已关闭" name="aaa"><Tab5></Tab5></el-tab-pane>
       </el-tabs>
     </div>
   </div>
@@ -36,11 +35,19 @@
 import Header from "../compoents/Header/Header";
 import Search from "../compoents/search/Search";
 import Tab1 from "./tab/Tab1";
+import Tab2 from "./tab/Tab2";
+import Tab3 from "./tab/Tab3";
+import Tab4 from "./tab/Tab4";
+import Tab5 from "./tab/Tab5";
 export default {
   components: {
     Header,
     Search,
-    Tab1
+    Tab1,
+    Tab2,
+    Tab3,
+    Tab4,
+    Tab5,
   },
   data() {
     return {
@@ -54,7 +61,8 @@ export default {
         }
       ],
       multipleSelection: [],
-      isclick: 0
+      isclick: 0,
+      activeName:'first'
     };
   },
 
@@ -101,5 +109,8 @@ export default {
 .table-box img {
   width: 50px;
   height: 50px;
+}
+.el-tabs{
+  margin-top: 20px;
 }
 </style>

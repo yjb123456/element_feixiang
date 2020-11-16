@@ -1,5 +1,6 @@
 <template>
   <div id="home">
+    
     <el-container style="height: 100%; border: 1px solid #eee">
       <div width="226px">
         <div class="u128">
@@ -36,13 +37,17 @@
               <i class="el-icon-document cor"></i>
               <span>订单管理</span>
             </el-menu-item>
-            <el-menu-item index="1">
-              <i class="el-icon-user-solid cor"></i>
+            <el-menu-item index="1" @click="open_c_user">
+              <i class="el-icon-user-solid cor" ></i>
               <span>用户管理</span>
+            </el-menu-item>
+            <el-menu-item index="1"  @click="open_c_finance">
+              <i class="el-icon-s-data cor"></i>
+              <span>财务管理</span>
             </el-menu-item>
             <el-menu-item index="1">
               <i class="el-icon-service cor"></i>
-              <span>用户管理</span>
+              <span>客服系统</span>
             </el-menu-item>
             <el-submenu index="7">
               <template slot="title">
@@ -50,11 +55,11 @@
                 <span>设置</span>
               </template>
               <el-menu-item-group>
-                <el-menu-item index="2-1">通用设置</el-menu-item>
-                <el-menu-item index="2-2">关于我们</el-menu-item>
-                <el-menu-item index="2-3">员工管理</el-menu-item>
-                <el-menu-item index="2-4">角色管理</el-menu-item>
-                <el-menu-item index="2-5">操作日志</el-menu-item>
+                <el-menu-item index="2-1" @click="open_c_general">通用设置</el-menu-item>
+                <el-menu-item index="2-2" @click="open_c_regard">关于我们</el-menu-item>
+                <el-menu-item index="2-3" @click="open_c_staff">员工管理</el-menu-item>
+                <el-menu-item index="2-4" @click="open_c_role">角色管理</el-menu-item>
+                <el-menu-item index="2-5" @click="open_c_log">操作日志</el-menu-item>
               </el-menu-item-group>
             </el-submenu>
           </el-menu>
@@ -71,7 +76,6 @@
           </el-avatar>
           <strong style="font-size:14px;margin-left:10px">Daisy</strong>
         </el-header>
-
         <el-main>
           <div class="main-body">
             <router-view></router-view>
@@ -179,7 +183,7 @@
   width: 1140px;
   margin: 0 auto;
   text-align: left;
-  height: 100%;
+  height: auto;
 }
 </style>
 
@@ -232,6 +236,27 @@ export default {
       this.$router.push({ name: "c_teachers" });
     },open_c_order() {
       this.$router.push({ name: "c_order" });
+    },
+    open_c_user() {
+      this.$router.push({ name: "c_user" });
+    },
+    open_c_finance() {
+      this.$router.push({ name: "c_finance"});
+    },
+    open_c_general() {
+      this.$router.push({ name: "c_general"});
+    },
+    open_c_regard() {
+      this.$router.push({ name: "c_regard"});
+    },
+    open_c_staff() {
+      this.$router.push({ name: "c_staff"});
+    },
+    open_c_role() {
+      this.$router.push({ name: "c_role"});
+    },
+    open_c_log() {
+      this.$router.push({ name: "c_log"});
     },
     handleSelect(key, keyPath) {
       console.log(key, keyPath);

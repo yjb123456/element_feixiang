@@ -6,21 +6,23 @@
         :data="tableData"
         tooltip-effect="dark"
         style="width: 100%"
-        :cell-style="{fontSize:'13px'}"
+        :cell-style="{fontSize:'12px'}"
         header-cell-style="background-color: #9137f3;color:#fff; text-align: center;"
         @selection-change="handleSelectionChange"
       >
         <el-table-column type="selection" width="55"></el-table-column>
-        <el-table-column prop="name" label="教师姓名" align="center"></el-table-column>
-        <el-table-column prop="tableData.address" label="教师头像" align="center">
-          <img :src="tableData[0].address" />
-        </el-table-column>
-        <el-table-column prop="zw" label="职位" align="center"></el-table-column>
-        <el-table-column prop="heir" label="上传人" align="center"></el-table-column>
-        <el-table-column prop="date" label="上传时间" align="center"></el-table-column>
-        <el-table-column label="操作" align="center">
-          <a class="tanchu">编辑</a>
-          <a @click="open2" class="tanchu">加入回收站</a>
+        <el-table-column prop="dingdan" label="订单编号" align="center" width="130"></el-table-column>
+        <el-table-column prop="name" label="用户微信昵称" align="center"></el-table-column>
+        <el-table-column prop="phone" label="用户手机号码" align="center" width="100"></el-table-column>
+        <el-table-column prop="kcmc" label="课程名称" align="center" width="135"></el-table-column>
+        <el-table-column prop="kcid" label="课程编号" align="center"></el-table-column>
+        <el-table-column prop="moeny" label="订单金额（元）" align="center"></el-table-column>
+        <el-table-column prop="ddzt" label="订单状态" align="center"></el-table-column>
+        <el-table-column prop="date" label="提交时间" align="center" width="150"></el-table-column>
+        <el-table-column label="操作" align="center" width="160" prop="caozuo">
+          <template slot-scope="scope">
+            <a class="tanchu" v-for="(g,index) in scope.row.caozuo" :key="index"  @click="open2">{{g}}</a>
+          </template>
         </el-table-column>
       </el-table>
     </div>
@@ -35,90 +37,113 @@
   </div>
 </template>
 <script>
+import jiaru from "../tab/jiaru";
 export default {
+  components: {
+    jiaru,
+  },
   data() {
     return {
       tableData: [
         {
-          date: "201-01-25 10:55",
-          name: "Jason",
-          address: require("../../../assets/C_Carousel_img/4.png"),
-          heir: " Daisy",
-          zw: "英语外教"
+          dingdan: "2019030102369669",
+          name: "Cassy",
+          phone: "18541263699",
+          kcmc: "幼儿英语入门课程",
+          kcid: "201920236",
+          moeny: "2399.00",
+          ddzt: "待付款",
+          date: "2019-01-25 10:55",
+          caozuo: ["查看订单", "取消订单"],
         },
         {
-          date: "201-01-25 10:55",
-          name: "Jason",
-          address: require("../../../assets/C_Carousel_img/4.png"),
-          heir: " Daisy",
-          zw: "英语外教"
+          dingdan: "2019030102369669",
+          name: "Cassy",
+          phone: "18541263699",
+          kcmc: "幼儿英语入门课程",
+          kcid: "201920236",
+          moeny: "2399.00",
+          ddzt: "待付款",
+          date: "2019-01-25 10:55",
+          caozuo: ["查看订单", "取消订单", "结束订单"],
         },
         {
-          date: "201-01-25 10:55",
-          name: "Jason",
-          address: require("../../../assets/C_Carousel_img/4.png"),
-          heir: " Daisy",
-          zw: "英语外教"
+          dingdan: "2019030102369669",
+          name: "Cassy",
+          phone: "18541263699",
+          kcmc: "幼儿英语入门课程",
+          kcid: "201920236",
+          moeny: "2399.00",
+          ddzt: "待付款",
+          date: "2019-01-25 10:55",
+          caozuo: ["查看订单"],
         },
         {
-          date: "201-01-25 10:55",
-          name: "Jason",
-          address: require("../../../assets/C_Carousel_img/4.png"),
-          heir: " Daisy",
-          zw: "英语外教"
+          dingdan: "2019030102369669",
+          name: "Cassy",
+          phone: "18541263699",
+          kcmc: "幼儿英语入门课程",
+          kcid: "201920236",
+          moeny: "2399.00",
+          ddzt: "待付款",
+          date: "2019-01-25 10:55",
+          caozuo: ["查看订单", "取消订单"],
         },
         {
-          date: "201-01-25 10:55",
-          name: "Jason",
-          address: require("../../../assets/C_Carousel_img/4.png"),
-          heir: " Daisy",
-          zw: "英语外教"
+          dingdan: "2019030102369669",
+          name: "Cassy",
+          phone: "18541263699",
+          kcmc: "幼儿英语入门课程",
+          kcid: "201920236",
+          moeny: "2399.00",
+          ddzt: "待付款",
+          date: "2019-01-25 10:55",
+          caozuo: ["查看订单", "取消订单"],
         },
         {
-          date: "201-01-25 10:55",
-          name: "Jason",
-          address: require("../../../assets/C_Carousel_img/4.png"),
-          heir: " Daisy",
-          zw: "英语外教"
+          dingdan: "2019030102369669",
+          name: "Cassy",
+          phone: "18541263699",
+          kcmc: "幼儿英语入门课程",
+          kcid: "201920236",
+          moeny: "2399.00",
+          ddzt: "待付款",
+          date: "2019-01-25 10:55",
+          caozuo: ["查看订单", "取消订单"],
         },
         {
-          date: "201-01-25 10:55",
-          name: "Jason",
-          address: require("../../../assets/C_Carousel_img/4.png"),
-          heir: " Daisy",
-          zw: "英语外教"
+          dingdan: "2019030102369669",
+          name: "Cassy",
+          phone: "18541263699",
+          kcmc: "幼儿英语入门课程",
+          kcid: "201920236",
+          moeny: "2399.00",
+          ddzt: "待付款",
+          date: "2019-01-25 10:55",
+          caozuo: ["查看订单", "取消订单"],
         },
         {
-          date: "201-01-25 10:55",
-          name: "Jason",
-          address: require("../../../assets/C_Carousel_img/4.png"),
-          heir: " Daisy",
-          zw: "英语外教"
+          dingdan: "2019030102369669",
+          name: "Cassy",
+          phone: "18541263699",
+          kcmc: "幼儿英语入门课程",
+          kcid: "201920236",
+          moeny: "2399.00",
+          ddzt: "待付款",
+          date: "2019-01-25 10:55",
+          caozuo: ["查看订单", "取消订单"],
         },
-        {
-          date: "201-01-25 10:55",
-          name: "Jason",
-          address: require("../../../assets/C_Carousel_img/4.png"),
-          heir: " Daisy",
-          zw: "英语外教"
-        },
-        {
-          date: "201-01-25 10:55",
-          name: "Jason",
-          address: require("../../../assets/C_Carousel_img/4.png"),
-          heir: " Daisy",
-          zw: "英语外教"
-        }
       ],
       multipleSelection: [],
-      isclick: 0
+      isclick: 0,
+      flog: true,
     };
   },
 
   methods: {
     toggleSelection(rows) {
       if (rows) {
-        rows.forEach(row => {
+        rows.forEach((row) => {
           this.$refs.multipleTable.toggleRowSelection(row);
         });
       } else {
@@ -135,28 +160,15 @@ export default {
           message: "加入回收站成功！",
           type: "success",
           offset: "100",
-          customClass: "myClass"
+          customClass: "myClass",
         });
         window.setTimeout(() => {
           this.isclick = 0;
         }, 3000);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped>
-.el-button {
-  border-color: rgba(145, 55, 243, 1);
-  font-size: 12px;
-  color: #9137f3;
-  width: 107px;
-  height: 32px;
-  padding: 0;
-  margin-top: 5px;
-}
-.table-box img {
-  width: 50px;
-  height: 50px;
-}
 </style>

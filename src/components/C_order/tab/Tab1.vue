@@ -19,8 +19,10 @@
         <el-table-column prop="moeny" label="订单金额（元）" align="center"></el-table-column>
         <el-table-column prop="ddzt" label="订单状态" align="center"></el-table-column>
         <el-table-column prop="date" label="提交时间" align="center" width="150"></el-table-column>
-        <el-table-column label="操作" align="center" width="150">
-          <a class="tanchu" v-for="(item,index) in tableData" :key="index">{{item.caozuo}}</a>
+        <el-table-column label="操作" align="center" width="160" prop="caozuo">
+          <template slot-scope="scope">
+            <a class="tanchu" v-for="(g,index) in scope.row.caozuo" :key="index"  @click="open2">{{g}}</a>
+          </template>
         </el-table-column>
       </el-table>
     </div>
@@ -35,42 +37,113 @@
   </div>
 </template>
 <script>
+import jiaru from "../tab/jiaru";
 export default {
+  components: {
+    jiaru,
+  },
   data() {
     return {
       tableData: [
         {
-          dingdan:"2019030102369669",
-          name:"Cassy",
-          phone:"18541263699",
-          kcmc:"幼儿英语入门课程",
-          kcid:"201920236",
-          moeny:"2399.00",
-          ddzt:"待付款",
-          date:"2019-01-25 10:55",
-          caozuo:["查看订单","取消订单"]
+          dingdan: "2019030102369669",
+          name: "Cassy",
+          phone: "18541263699",
+          kcmc: "幼儿英语入门课程",
+          kcid: "201920236",
+          moeny: "2399.00",
+          ddzt: "待付款",
+          date: "2019-01-25 10:55",
+          caozuo: ["查看订单", "取消订单"],
         },
         {
-          dingdan:"2019030102369669",
-          name:"Cassy",
-          phone:"18541263699",
-          kcmc:"幼儿英语入门课程",
-          kcid:"201920236",
-          moeny:"2399.00",
-          ddzt:"待付款",
-          date:"2019-01-25 10:55",
-          caozuo:["查看订单","取消订单","结束订单"]
-        }
+          dingdan: "2019030102369669",
+          name: "Cassy",
+          phone: "18541263699",
+          kcmc: "幼儿英语入门课程",
+          kcid: "201920236",
+          moeny: "2399.00",
+          ddzt: "待付款",
+          date: "2019-01-25 10:55",
+          caozuo: ["查看订单", "取消订单", "结束订单"],
+        },
+        {
+          dingdan: "2019030102369669",
+          name: "Cassy",
+          phone: "18541263699",
+          kcmc: "幼儿英语入门课程",
+          kcid: "201920236",
+          moeny: "2399.00",
+          ddzt: "待付款",
+          date: "2019-01-25 10:55",
+          caozuo: ["查看订单"],
+        },
+        {
+          dingdan: "2019030102369669",
+          name: "Cassy",
+          phone: "18541263699",
+          kcmc: "幼儿英语入门课程",
+          kcid: "201920236",
+          moeny: "2399.00",
+          ddzt: "待付款",
+          date: "2019-01-25 10:55",
+          caozuo: ["查看订单", "取消订单"],
+        },
+        {
+          dingdan: "2019030102369669",
+          name: "Cassy",
+          phone: "18541263699",
+          kcmc: "幼儿英语入门课程",
+          kcid: "201920236",
+          moeny: "2399.00",
+          ddzt: "待付款",
+          date: "2019-01-25 10:55",
+          caozuo: ["查看订单", "取消订单"],
+        },
+        {
+          dingdan: "2019030102369669",
+          name: "Cassy",
+          phone: "18541263699",
+          kcmc: "幼儿英语入门课程",
+          kcid: "201920236",
+          moeny: "2399.00",
+          ddzt: "待付款",
+          date: "2019-01-25 10:55",
+          caozuo: ["查看订单", "取消订单"],
+        },
+        {
+          dingdan: "2019030102369669",
+          name: "Cassy",
+          phone: "18541263699",
+          kcmc: "幼儿英语入门课程",
+          kcid: "201920236",
+          moeny: "2399.00",
+          ddzt: "待付款",
+          date: "2019-01-25 10:55",
+          caozuo: ["查看订单", "取消订单"],
+        },
+        {
+          dingdan: "2019030102369669",
+          name: "Cassy",
+          phone: "18541263699",
+          kcmc: "幼儿英语入门课程",
+          kcid: "201920236",
+          moeny: "2399.00",
+          ddzt: "待付款",
+          date: "2019-01-25 10:55",
+          caozuo: ["查看订单", "取消订单"],
+        },
       ],
       multipleSelection: [],
-      isclick: 0
+      isclick: 0,
+      flog: true,
     };
   },
 
   methods: {
     toggleSelection(rows) {
       if (rows) {
-        rows.forEach(row => {
+        rows.forEach((row) => {
           this.$refs.multipleTable.toggleRowSelection(row);
         });
       } else {
@@ -87,16 +160,15 @@ export default {
           message: "加入回收站成功！",
           type: "success",
           offset: "100",
-          customClass: "myClass"
+          customClass: "myClass",
         });
         window.setTimeout(() => {
           this.isclick = 0;
         }, 3000);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped>
-
 </style>
