@@ -13,14 +13,7 @@
         <i class="el-icon-menu"></i>
         <span style="margin-left:10px">文章列表</span>
       </div>
-      <div class="title-r">
-        <el-button plain>
-          <i class="el-icon-circle-plus"></i>新增轮播图
-        </el-button>
-        <el-button plain>
-          <i class="el-icon-delete-solid"></i>回收站
-        </el-button>
-      </div>
+    
       <div class="table-box">
         <el-table
           ref="multipleTable"
@@ -45,7 +38,7 @@
           </el-table-column>
           <el-table-column label="操作" align="center">
             <template slot-scope="scope">
-              <a class="tanchu">编辑</a>
+              <a class="tanchu" @click="bianj">编辑</a>
               <el-popconfirm
                 @show="editRow(scope.$index, tableData)"
                 trigger="click"
@@ -204,7 +197,9 @@ export default {
           this.isclick = 0;
         }, 3000);
       }
-    },
+    },bianj(){
+      this.$router.push({ path: "/Xqing"})
+    }
   },
 };
 </script>

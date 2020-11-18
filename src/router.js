@@ -97,6 +97,27 @@ export default new Router({
           path: "/C_log",
           name: "c_log",
           component: () => import('./components/Set/C_log')
+        },
+        {
+          path: "/Compile",
+          name: "compile",
+          component: () => import('./components/Set/compoents/Compile.vue')
+        },
+        {
+          path: "/Xinzheng",
+          name: "xinzheng",
+          component: () => import('./components/Set/compoents/Xinzheng.vue')
+        }
+        ,
+        {
+          path: "/Xqing",
+          name: "xqing",
+          component: () => import('./components/C_user/Xqing.vue')
+        },
+        {
+          path: "/Details",
+          name: "details",
+          component: () => import('./components/C_order/details/Details.vue')
         }
       ]
     }

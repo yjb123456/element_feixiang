@@ -20,9 +20,9 @@
         <el-table-column prop="ddzt" label="订单状态" align="center"></el-table-column>
         <el-table-column prop="date" label="提交时间" align="center" width="150"></el-table-column>
         <el-table-column label="操作" align="center" width="160" prop="caozuo">
-          <template slot-scope="scope">
-            <a class="tanchu" v-for="(g,index) in scope.row.caozuo" :key="index"  @click="open2">{{g}}</a>
-          </template>
+          <div class="flex" style=" justify-content: center ">
+            <a class="tanchu" style="margin-right:10px">查看订单</a>
+          </div>
         </el-table-column>
       </el-table>
     </div>

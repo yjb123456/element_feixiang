@@ -97,7 +97,11 @@ a:hover{
   margin-right: 25px;
   margin-top: 10px;
 }
-
+.flex{
+  display: flex;
+  flex-wrap:wrap;
+ 
+}
 </style>
 
 

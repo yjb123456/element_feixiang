@@ -14,7 +14,7 @@
         <span style="margin-left:10px">员工列表</span>
       </div>
       <div class="title-r">
-        <el-button plain>
+        <el-button plain @click="xinzheng">
           <i class="el-icon-circle-plus"></i>新增角色
         </el-button>
       </div>
@@ -41,7 +41,7 @@
           </el-table-column>
           <el-table-column label="操作" align="left" >
             <template slot-scope="scope">
-              <a class="tanchu">编辑</a>
+              <a class="tanchu" @click="edit">编辑</a>
               <el-popconfirm
                 @show="editRow(scope.$index, tableData)"
                 trigger="click"
@@ -170,6 +170,12 @@ export default {
         }, 3000);
       }
     },
+    edit(){
+      this.$router.push({name:"compile"})
+    },
+    xinzheng(){
+      this.$router.push({name:"xinzheng"})
+    }
   },
 };
 </script>

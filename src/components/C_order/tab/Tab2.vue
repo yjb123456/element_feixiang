@@ -19,10 +19,11 @@
         <el-table-column prop="moeny" label="订单金额（元）" align="center"></el-table-column>
         <el-table-column prop="ddzt" label="订单状态" align="center"></el-table-column>
         <el-table-column prop="date" label="提交时间" align="center" width="150"></el-table-column>
-        <el-table-column label="操作" align="center" width="160" prop="caozuo">
-          <template slot-scope="scope">
-            <a class="tanchu" v-for="(g,index) in scope.row.caozuo" :key="index"  @click="open2">{{g}}</a>
-          </template>
+        <el-table-column label="操作" width="160" prop="caozuo">
+          <div class="flex">
+            <a class="tanchu" style="margin-right:10px" @click="open">查看订单</a>
+            <Dle title="删除订单"></Dle>
+          </div>
         </el-table-column>
       </el-table>
     </div>
@@ -38,9 +39,11 @@
 </template>
 <script>
 import jiaru from "../tab/jiaru";
+import Dle from "../../compoents/del/Dle";
 export default {
   components: {
     jiaru,
+    Dle,
   },
   data() {
     return {
@@ -54,7 +57,6 @@ export default {
           moeny: "2399.00",
           ddzt: "待付款",
           date: "2019-01-25 10:55",
-          caozuo: ["查看订单", "取消订单"],
         },
         {
           dingdan: "2019030102369669",
@@ -65,7 +67,6 @@ export default {
           moeny: "2399.00",
           ddzt: "待付款",
           date: "2019-01-25 10:55",
-          caozuo: ["查看订单", "取消订单", "结束订单"],
         },
         {
           dingdan: "2019030102369669",
@@ -76,7 +77,6 @@ export default {
           moeny: "2399.00",
           ddzt: "待付款",
           date: "2019-01-25 10:55",
-          caozuo: ["查看订单"],
         },
         {
           dingdan: "2019030102369669",
@@ -87,7 +87,6 @@ export default {
           moeny: "2399.00",
           ddzt: "待付款",
           date: "2019-01-25 10:55",
-          caozuo: ["查看订单", "取消订单"],
         },
         {
           dingdan: "2019030102369669",
@@ -98,7 +97,6 @@ export default {
           moeny: "2399.00",
           ddzt: "待付款",
           date: "2019-01-25 10:55",
-          caozuo: ["查看订单", "取消订单"],
         },
         {
           dingdan: "2019030102369669",
@@ -109,7 +107,6 @@ export default {
           moeny: "2399.00",
           ddzt: "待付款",
           date: "2019-01-25 10:55",
-          caozuo: ["查看订单", "取消订单"],
         },
         {
           dingdan: "2019030102369669",
@@ -120,7 +117,6 @@ export default {
           moeny: "2399.00",
           ddzt: "待付款",
           date: "2019-01-25 10:55",
-          caozuo: ["查看订单", "取消订单"],
         },
         {
           dingdan: "2019030102369669",
@@ -131,12 +127,12 @@ export default {
           moeny: "2399.00",
           ddzt: "待付款",
           date: "2019-01-25 10:55",
-          caozuo: ["查看订单", "取消订单"],
         },
       ],
       multipleSelection: [],
       isclick: 0,
       flog: true,
+      dialogFormVisible: false,
     };
   },
 
@@ -167,8 +163,21 @@ export default {
         }, 3000);
       }
     },
+    open(){
+      this.$router.push({path: "/Details",})
+    }
   },
 };
 </script>
 <style scoped>
+>>> .el-dialog {
+  position: relative;
+  margin: 0 auto 50px;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 400px;
+}
 </style>
