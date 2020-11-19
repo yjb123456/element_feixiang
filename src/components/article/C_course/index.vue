@@ -14,8 +14,8 @@
         <span style="margin-left:10px">文章列表</span>
       </div>
       <div class="title-r">
-        <el-button plain>
-          <i class="el-icon-circle-plus"></i>新增轮播图
+        <el-button plain @click="open">
+          <i class="el-icon-circle-plus"></i>新增课程
         </el-button>
         <el-button plain>
           <i class="el-icon-delete-solid"></i>回收站
@@ -41,7 +41,7 @@
           <el-table-column prop="heir" label="上传人" align="center"></el-table-column>
           <el-table-column prop="date" label="上传时间" align="center"  width="130px"></el-table-column>
           <el-table-column label="操作" align="center"  width="150px">
-            <a class="tanchu2" >编辑</a>
+            <a class="tanchu2" @click="open">编辑</a>
             <a @click="open2" class="tanchu2" >加入回收站</a>
           </el-table-column>
         </el-table>
@@ -191,6 +191,9 @@ export default {
           this.isclick = 0;
         }, 3000);
       }
+    },
+    open(){
+      this.$router.push({path: "/Insert4"})
     }
   }
 };

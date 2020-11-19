@@ -21,7 +21,7 @@
         <el-table-column prop="date" label="提交时间" align="center" width="150"></el-table-column>
         <el-table-column label="操作"  width="160" prop="caozuo">
           <div class="flex">
-            <a class="tanchu" style="margin-right:10px">查看订单</a>
+            <a class="tanchu" style="margin-right:10px" @click="open">查看订单</a>
             <Dle title="删除订单"></Dle>
           </div>
         </el-table-column>
@@ -169,7 +169,11 @@ export default {
           this.isclick = 0;
         }, 3000);
       }
-    },
+    },open(){
+      this.$router.push({
+        path: "/Details4"
+      })
+    }
   },
 };
 </script>

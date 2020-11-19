@@ -119,6 +119,54 @@ export default new Router({
           name: "details",
           component: () => import('./components/C_order/details/Details.vue')
         }
+        ,
+        {
+          path: "/Details2",
+          name: "details2",
+          component: () => import('./components/C_order/details/Details2.vue')
+        }
+        ,
+        {
+          path: "/Details3",
+          name: "details3",
+          component: () => import('./components/C_order/details/Details3.vue')
+        }
+        ,
+        {
+          path: "/Details4",
+          name: "details4",
+          component: () => import('./components/C_order/details/Details4.vue')
+        }
+        ,
+        {
+          path: "/Insert",
+          name: "insert",
+          component: () => import('./components//article/C_Carousel/insert.vue')
+        }
+        ,
+        {
+          path: "/Insert2",
+          name: "insert2",
+          component: () => import('./components//article/C_activities/insert.vue')
+        }
+        ,
+        {
+          path: "/Insert3",
+          name: "insert3",
+          component: () => import('./components//article/C_cducation/insert.vue')
+        }
+        ,
+        {
+          path: "/Insert4",
+          name: "insert4",
+          component: () => import('./components//article/C_course/insert.vue')
+        }
+        ,
+        {
+          path: "/Insert5",
+          name: "insert5",
+          component: () => import('./components//article/C_teachers/insert.vue')
+        }
       ]
     }
   ]

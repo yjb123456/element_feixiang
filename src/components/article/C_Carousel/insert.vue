@@ -1,41 +1,33 @@
 <template>
   <div>
     <div class="aa">
-      <edit></edit>
+      <edit title="新增轮播图"></edit>
     </div>
     <div class="box-boder-pub" style="height:689px">
       <div>
         <div>
           <el-input v-model="input" placeholder="请填写员工信息  " class="input"></el-input>
         </div>
-        <p>账号信息:</p>
         <div class="xq">
           <el-form :label-position="labelPosition" label-width="100px" :model="formLabelAlign">
-            <el-form-item label="员工姓名：">
-              <el-input v-model="formLabelAlign.name"></el-input>
+            <el-form-item label="轮播图名称：">
+              <el-input v-model="formLabelAlign.name" placeholder="请输入轮播图名称"></el-input>
             </el-form-item>
-            <el-form-item label="工号:">
-              <el-input v-model="formLabelAlign.region"></el-input>
+            <el-form-item label="轮播图:">
+              <img src="../../../assets/C-hone/8.png" alt />
             </el-form-item>
-            <el-form-item label="密码:">
-              <el-input v-model="formLabelAlign.type" placeholder="请输入6位以上密码,数字或英文"></el-input>
-            </el-form-item>
-
-            <el-form-item label="状态">
+            <el-form-item label="轮播图状态:" style="text-align: left;">
               <el-switch v-model="value" active-color="#4C59F8" inactive-color="#ff4949" class="vv"></el-switch>
             </el-form-item>
-            <el-form-item label="角色:">
-              <el-select v-model="value2" placeholder="请选择">
-                <el-option
-                  v-for="item in options"
-                  :key="item.value"
-                  :label="item.label"
-                  :value="item.value"
-                ></el-option>
-              </el-select>
+            <el-form-item label="链接:">
+              <el-input v-model="formLabelAlign.name"></el-input>
             </el-form-item>
-            <el-form-item label="手机号码:">
-              <el-input v-model="formLabelAlign.type"></el-input>
+            <el-form-item label="上传时间:">
+              <el-date-picker v-model="value1" type="date" placeholder="选择日期"></el-date-picker>
+            </el-form-item>
+            <el-form-item label="排序号:">
+              <el-input v-model="formLabelAlign.name" placeholder="0"></el-input>
+              <span class="rr">请填写数字，数字越大越靠前</span>
             </el-form-item>
           </el-form>
         </div>
@@ -78,6 +70,7 @@ export default {
       value: true,
       value2: "请选择",
       isclick: 0,
+      value1: "",
     };
   },
   methods: {
@@ -96,12 +89,18 @@ export default {
       }
     },
     quxiao() {
-       this.$router.go(-1)
+      this.$router.go(-1);
     },
   },
 };
 </script>
 <style scoped>
+.rr {
+  position: absolute;
+  right: -200px;
+  font-size: 12px;
+  color: #999999;
+}
 >>> .el-switch__core {
   width: 60px !important;
 }
@@ -133,6 +132,7 @@ export default {
   padding: 20px 30px;
   text-align: center;
   margin-top: 10px;
+  flex-wrap: wrap;
 }
 .bb > img {
   width: 100%;

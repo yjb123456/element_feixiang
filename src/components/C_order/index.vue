@@ -13,14 +13,6 @@
         <i class="el-icon-menu"></i>
         <span style="margin-left:10px">文章列表</span>
       </div>
-      <div class="title-r">
-        <el-button plain>
-          <i class="el-icon-circle-plus"></i>新增教师
-        </el-button>
-        <el-button plain>
-          <i class="el-icon-delete-solid"></i>回收站
-        </el-button>
-      </div>
       <el-tabs v-model="activeName" @tab-click="handleClick">
         <el-tab-pane label="全部订单" name="first"><Tab1></Tab1></el-tab-pane>
         <el-tab-pane label="待付款" name="second"><Tab2></Tab2></el-tab-pane>

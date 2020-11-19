@@ -14,7 +14,7 @@
         <span style="margin-left:10px">文章列表</span>
       </div>
       <div class="title-r">
-        <el-button plain>
+        <el-button plain @click="open">
           <i class="el-icon-circle-plus"></i>新增文章
         </el-button>
         <el-button plain>
@@ -40,7 +40,7 @@
           <el-table-column prop="heir" label="上传人" align="center"></el-table-column>
           <el-table-column prop="date" label="上传时间" align="center"></el-table-column>
           <el-table-column label="操作" align="center">
-            <a  class="tanchu">编辑</a>
+            <a  class="tanchu" @click="open">编辑</a>
             <a @click="open2" class="tanchu">加入回收站</a>
           </el-table-column>
         </el-table>
@@ -169,6 +169,8 @@ export default {
           this.isclick = 0;
         }, 3000);
       }
+    },open(){
+      this.$router.push({path: "/Insert3"})
     }
   }
 };

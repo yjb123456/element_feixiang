@@ -4,16 +4,16 @@
     <div class="box-boder-pub">
       <div class="steps">
         <el-steps :active="0" simple align-center="true">
-          <el-step title="提交订单" icon="none"  class="aa"></el-step>
-          <el-step title="支付订单" icon="none"></el-step>
-          <el-step title="学习课程" icon="none"></el-step>
-          <el-step title="课程结束" icon="none"></el-step>
-          <el-step title="完成评价" icon="none"></el-step>
+          <el-step title="提交订单" icon="none" class="aa"></el-step>
+          <el-step title="支付订单" icon="none" class="bb"></el-step>
+          <el-step title="学习课程" icon="none" class="cc"></el-step>
+          <el-step title="课程结束" icon="none" class="dd"></el-step>
+          <el-step title="完成评价" icon="none" class="ee"></el-step>
         </el-steps>
       </div>
       <div class="steps2">
-        <img src="../../../assets/C_Carousel_img/7.png" />
-        <span>订单状态：课程已拍下，等待买家付款</span>
+        <img src="../../../assets/C_Carousel_img/10.png" />
+        <span>订单状态：已关闭</span>
         <el-button size="mini">
           <Dle title="取消订单"></Dle>
         </el-button>
@@ -62,7 +62,9 @@
         >
           <el-table-column prop="val1" label="课程ID"></el-table-column>
           <el-table-column prop="val2" label="课程名称"></el-table-column>
-          <el-table-column prop="val3" label="列表图"><img :src="tableData[0].val3" /></el-table-column>
+          <el-table-column prop="val3" label="列表图">
+            <img :src="tableData[0].val3" />
+          </el-table-column>
           <el-table-column prop="val4" label="课程上架"></el-table-column>
           <el-table-column prop="val5" label="报名费（元）"></el-table-column>
         </el-table>
@@ -143,27 +145,32 @@ export default {
           val2: "2015-10-23 10:25",
           val3: "无",
           val4: "老客户订单",
-        },
+        },{
+          val1: "Daisy",
+          val2: "2015-10-23 10:25",
+          val3: "订单状态修改为：已关闭",
+          val4: "已付款，老师联系客户时发现孩子已经超过该课程学习年龄了",
+        }
       ],
     };
   },
 };
 </script>
 <style scoped>
-.aa>>>.el-step__title:nth-of-type(1){
-    color: #fff;
+.ee >>> .el-step__title.is-wait{
+  color: #fff;
 }
-.el-step.is-simple:nth-of-type(1){
-    background-color:#9137F3;
+.el-step.is-simple:nth-of-type(5) {
+  background-color: #9137F3;
 }
-.el-step__arrow::before:nth-of-type(1){
-    background: #fff;
+.el-step__arrow::before:nth-of-type(1) {
+  background: #fff;
 }
-.aa>>>.el-step__arrow::before{
-    background: #fff;
+.ee >>> .el-step__arrow::before {
+  background: #fff;
 }
-.aa>>>.el-step__arrow::after{
-background: #fff;
+.ee >>> .el-step__arrow::after {
+  background: #fff;
 }
 .el-steps--simple {
   padding: 0;
@@ -189,7 +196,7 @@ background: #fff;
   font-family: "思源黑体 Bold", "思源黑体 Regular", "思源黑体";
   font-weight: 700;
   font-style: normal;
-  color: #FF9900;
+  color: #999999;
   font-size: 14px;
   margin: 0 20px;
 }
@@ -214,8 +221,8 @@ background: #fff;
 .title-none > div p {
   margin: 10px;
 }
-.title-none2 img{
-    width: 100px;
-    height: 60px;
+.title-none2 img {
+  width: 100px;
+  height: 60px;
 }
 </style>
